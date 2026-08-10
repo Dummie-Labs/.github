@@ -1,7 +1,7 @@
 <div align="center">
 
   <!-- Minimalist High-Performance Header Banner -->
-  <img src="profile/dummie_labs_banner.png" alt="Dummie-Labs Sovereign Edge AI Banner" width="100%" style="border-radius: 8px;" />
+  <img src="profile/dummie_labs_banner.png" alt="Dummie-Labs Sovereign Edge AI Banner" width="70%" style="border-radius: 8px;" />
 
   <br/><br/>
 
