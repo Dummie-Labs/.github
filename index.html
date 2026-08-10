@@ -1,13 +1,211 @@
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>My Project Readme</title>
-  <!-- Import zero-md web component with mermaid support -->
-  <script type="module" src="https://cdn.jsdelivr.net/npm/zero-md@3?register"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dummie-Labs | Sovereign Edge AI Research</title>
+  
+  <!-- GitHub Dark Markdown CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.5.1/github-markdown-dark.min.css">
+  
+  <!-- Highlight.js Syntax Highlighting Theme -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github-dark.min.css">
+  
+  <style>
+    :root {
+      color-scheme: dark;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    html, body {
+      background-color: #0d1117;
+      color: #c9d1d9;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+    }
+    /* Centered Container */
+    #page-container {
+      width: 100%;
+      max-width: 920px;
+      padding: 40px 24px;
+      margin: 0 auto;
+    }
+    @media (max-width: 767px) {
+      #page-container {
+        padding: 20px 14px;
+      }
+    }
+    .markdown-body {
+      background-color: #0d1117;
+    }
+    /* Mermaid diagram container alignment and styling */
+    .mermaid-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 30px auto;
+      background: #161b22;
+      padding: 24px;
+      border-radius: 10px;
+      border: 1px solid #30363d;
+      overflow-x: auto;
+    }
+    .mermaid-wrapper svg {
+      max-width: 100%;
+      height: auto;
+    }
+    #loading {
+      text-align: center;
+      padding: 60px 20px;
+      font-size: 1.1rem;
+      color: #8b949e;
+    }
+    /* Local file upload fallback button if opened via file:// */
+    .local-fallback {
+      background: #161b22;
+      border: 1px dashed #30363d;
+      border-radius: 8px;
+      padding: 30px;
+      text-align: center;
+      margin: 40px auto;
+    }
+    .btn-file {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #238636;
+      color: #ffffff;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .btn-file:hover {
+      background: #2ea043;
+    }
+  </style>
 </head>
 <body>
-  <!-- Fetch and render README.md -->
-  <zero-md src="README.md"></zero-md>
+
+  <div id="page-container">
+    <div id="content" class="markdown-body">
+      <div id="loading">⚡ Loading Dummie-Labs Documentation...</div>
+    </div>
+  </div>
+
+  <!-- Marked Markdown Parser -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <!-- Highlight.js Code Highlighting -->
+  <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/highlight.min.js"></script>
+  <!-- Mermaid Diagram Engine -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+
+  <script>
+    // 1. Initialize Mermaid Engine with Dark Theme
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: 'dark',
+      securityLevel: 'loose',
+      themeVariables: {
+        darkMode: true,
+        background: '#161b22',
+        primaryColor: '#1f242d',
+        primaryBorderColor: '#89b4fa',
+        lineColor: '#cba6f7',
+        textColor: '#cdd6f4'
+      }
+    });
+
+    // 2. Custom Marked Renderer for Mermaid Code Blocks
+    const renderer = new marked.Renderer();
+    const defaultCodeRenderer = renderer.code.bind(renderer);
+
+    renderer.code = function(code, language, escaped) {
+      if (language === 'mermaid') {
+        return `<div class="mermaid-wrapper"><div class="mermaid">${code}</div></div>`;
+      }
+      return defaultCodeRenderer(code, language, escaped);
+    };
+
+    marked.setOptions({
+      renderer: renderer,
+      gfm: true,
+      breaks: false,
+      highlight: function(code, lang) {
+        if (lang && hljs.getLanguage(lang)) {
+          try {
+            return hljs.highlight(code, { language: lang }).value;
+          } catch (e) {}
+        }
+        return hljs.highlightAuto(code).value;
+      }
+    });
+
+    function renderMarkdown(markdownText) {
+      // Fix relative image paths in profile/README.md so root index.html loads them from profile/
+      markdownText = markdownText.replace(/src=["'](?!http|\/|profile\/)([^"']+)["']/g, 'src="profile/$1"');
+      markdownText = markdownText.replace(/!\[([^\]]*)\]\((?!http|\/|profile\/)([^)]+)\)/g, '![$1](profile/$2)');
+
+      // Render Markdown HTML
+      document.getElementById('content').innerHTML = marked.parse(markdownText);
+      
+      // Render Mermaid Diagrams asynchronously
+      setTimeout(() => {
+        mermaid.run({
+          nodes: document.querySelectorAll('.mermaid')
+        });
+      }, 50);
+    }
+
+    // 3. Try fetching profile/README.md (Works on GitHub Pages & Local Servers)
+    fetch('profile/README.md')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.text();
+      })
+      .then(markdown => {
+        renderMarkdown(markdown);
+      })
+      .catch(error => {
+        // If opened locally via file:// protocol where fetch is blocked by CORS
+        if (window.location.protocol === 'file:') {
+          document.getElementById('content').innerHTML = `
+            <div class="local-fallback">
+              <h3>📂 Local File Protocol Notice</h3>
+              <p>You opened <code>index.html</code> directly via <code>file://</code> protocol, so your browser blocked fetching <code>profile/README.md</code> for security reasons.</p>
+              <p><strong>Option 1:</strong> Select your <code>profile/README.md</code> file below to view it locally with all tables & rendering:</p>
+              <label class="btn-file">
+                Choose profile/README.md
+                <input type="file" id="file-input" accept=".md" style="display:none;">
+              </label>
+              <p style="margin-top:20px; font-size:0.85rem; color:#8b949e;"><strong>Option 2:</strong> Once pushed to <strong>GitHub Pages</strong>, it will load <code>profile/README.md</code> automatically without any clicks!</p>
+            </div>
+          `;
+          document.getElementById('file-input').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+              const reader = new FileReader();
+              reader.onload = function(evt) {
+                renderMarkdown(evt.target.result);
+              };
+              reader.readAsText(file);
+            }
+          });
+        } else {
+          document.getElementById('content').innerHTML = `
+            <div style="padding: 20px; border: 1px solid #f85149; border-radius: 6px; background: rgba(248,81,73,0.1); color: #f85149;">
+              <h3>Failed to load profile/README.md</h3>
+              <p>${error.message}</p>
+            </div>
+          `;
+        }
+      });
+  </script>
 </body>
 </html>

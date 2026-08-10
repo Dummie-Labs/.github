@@ -1,12 +1,12 @@
 <div align="center">
 
   <!-- Minimalist High-Performance Header Banner -->
-  <img src="dummie_labs_banner.png" alt="Dummie-Labs Sovereign Edge AI Banner" width="100%" style="border-radius: 8px;" />
+  <img src="dummie_labs_banner.png" alt="Dummie-Labs Sovereign Edge AI Banner" width="100%" style="border-radius: 18px;" />
 
   <br/><br/>
 
   <!-- Minimalist Emblem Logo -->
-  <img src="dummie_labs_logo.png" alt="Dummie-Labs Logo" width="130" style="border-radius: 50%;" />
+  <img src="dummie_labs_logo.png" alt="Dummie-Labs Logo" width="180" style="border-radius: 50%;" />
 
   # ⚡ Dummie-Labs `01`
 
@@ -87,52 +87,6 @@ Our lab actively conducts research across 6 primary vectors:
 | **E.D.I.T.H. Device Mesh** | Cross-device telemetry & remote MCP action bridge | `Tailscale`, `WebRTC`, `FastAPI`, `ADB` | <30ms network latency |
 | **MCP-Shield Security** | Inline prompt injection defense & policy auditing | `Python`, `MCP Protocol`, `@shield` | <2ms audit overhead |
 | **Ephemeral Async Swarm** | Zero-bloat sub-agent orchestration (`jcode`-style) | `Asyncio`, `WebSockets`, `Playwright` | Dynamic / Self-destruct |
-
----
-
-## 📐 System & Mesh Architecture
-
-```mermaid
-graph TD
-    classDef inputStyle fill:#1e1e2e,stroke:#89b4fa,stroke-width:2px,color:#cdd6f4;
-    classDef cascadeStyle fill:#181825,stroke:#cba6f7,stroke-width:2px,color:#cdd6f4;
-    classDef coreStyle fill:#11111b,stroke:#f38ba8,stroke-width:2px,color:#cdd6f4;
-    classDef shieldStyle fill:#313244,stroke:#a6e3a1,stroke-width:2px,color:#cdd6f4;
-    classDef swarmStyle fill:#181825,stroke:#fab387,stroke-width:2px,color:#cdd6f4;
-
-    subgraph Mesh ["PRIVATE TAILSCALE MESH NETWORK (100.x.x.x)"]
-        subgraph CentralRig ["Central Command Rig (GPU)"]
-            CoreBrain["Sovereign Edge SLM Brain<br/>(Qwen-2.5 7B Q4_K_M)"]
-            MarkdownVault["Obsidian .md Vault Memory<br/>(Non-Parametric Storage)"]
-            VisionEngine["Perceptual Vision Engine<br/>(YOLOv11 + InsightFace 3D)"]
-        end
-
-        subgraph FieldNodes ["Remote Field Nodes"]
-            MobileNode["Mobile Phone Node<br/>(WebRTC Stream & Mic)"]
-            LaptopNode["Laptop Node<br/>(Local MCP Agent)"]
-            TVNode["Smart TV Node<br/>(ADB / MQTT Actuator)"]
-        end
-    end
-
-    subgraph Security ["Security & Execution Gate"]
-        ShieldGate["MCP-SHIELD FIREWALL<br/>(@shield Inline Policy Audit)"]
-        SubAgentSwarm["Async Sub-Agent Swarm<br/>(Spawn -> Execute -> Destroy)"]
-    end
-
-    MobileNode -->|WebRTC Feed <30ms| VisionEngine
-    MobileNode -->|Voice Stream| CoreBrain
-    CoreBrain <-->|Context Hydration| MarkdownVault
-    CoreBrain -->|Action Payload| ShieldGate
-    ShieldGate -->|Authorized Execution| SubAgentSwarm
-    SubAgentSwarm -->|Remote MCP| LaptopNode
-    SubAgentSwarm -->|ADB Commands| TVNode
-
-    class MobileNode,LaptopNode,TVNode inputStyle;
-    class VisionEngine cascadeStyle;
-    class CoreBrain,MarkdownVault coreStyle;
-    class ShieldGate shieldStyle;
-    class SubAgentSwarm swarmStyle;
-```
 
 ---
 
