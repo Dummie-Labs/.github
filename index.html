@@ -3,209 +3,664 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dummie-Labs | Sovereign Edge AI Research</title>
-  
-  <!-- GitHub Dark Markdown CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.5.1/github-markdown-dark.min.css">
-  
-  <!-- Highlight.js Syntax Highlighting Theme -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github-dark.min.css">
-  
-  <style>
-    :root {
-      color-scheme: dark;
-    }
-    * {
-      box-sizing: border-box;
-    }
-    html, body {
-      background-color: #0d1117;
-      color: #c9d1d9;
-      margin: 0;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-    }
-    /* Centered Container */
-    #page-container {
-      width: 100%;
-      max-width: 920px;
-      padding: 40px 24px;
-      margin: 0 auto;
-    }
-    @media (max-width: 767px) {
-      #page-container {
-        padding: 20px 14px;
-      }
-    }
-    .markdown-body {
-      background-color: #0d1117;
-    }
-    /* Mermaid diagram container alignment and styling */
-    .mermaid-wrapper {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 30px auto;
-      background: #161b22;
-      padding: 24px;
-      border-radius: 10px;
-      border: 1px solid #30363d;
-      overflow-x: auto;
-    }
-    .mermaid-wrapper svg {
-      max-width: 100%;
-      height: auto;
-    }
-    #loading {
-      text-align: center;
-      padding: 60px 20px;
-      font-size: 1.1rem;
-      color: #8b949e;
-    }
-    /* Local file upload fallback button if opened via file:// */
-    .local-fallback {
-      background: #161b22;
-      border: 1px dashed #30363d;
-      border-radius: 8px;
-      padding: 30px;
-      text-align: center;
-      margin: 40px auto;
-    }
-    .btn-file {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 10px 20px;
-      background: #238636;
-      color: #ffffff;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: 600;
-      text-decoration: none;
-    }
-    .btn-file:hover {
-      background: #2ea043;
-    }
-  </style>
+  <title>DUM-E Labs — Memory that thinks</title>
+  <meta name="description" content="DUM-E Labs is building MNEMOS, a neuromorphic processor where storage is the processor, and SOMA, brain-native spiking AI models that learn while they run — at 20–40 W.">
+  <meta name="theme-color" content="#050505">
+  <link rel="canonical" href="https://dummie-labs.github.io/.github/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="DUM-E Labs">
+  <meta property="og:url" content="https://dummie-labs.github.io/.github/">
+  <meta property="og:title" content="DUM-E Labs — Memory that thinks">
+  <meta property="og:description" content="Neuromorphic silicon & brain-native AI. Compute where memory lives.">
+  <meta property="og:image" content="https://dummie-labs.github.io/.github/brand/dume-labs-banner.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DUM-E Labs — Memory that thinks">
+  <meta name="twitter:description" content="Neuromorphic silicon & brain-native AI. Compute where memory lives.">
+  <meta name="twitter:image" content="https://dummie-labs.github.io/.github/brand/dume-labs-banner.png">
+  <link rel="icon" type="image/svg+xml" href="brand/favicon.svg">
+  <link rel="icon" type="image/png" href="brand/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/site.css?v=6">
 </head>
 <body>
 
-  <div id="page-container">
-    <div id="content" class="markdown-body">
-      <div id="loading">⚡ Loading Dummie-Labs Documentation...</div>
+  <a class="skip" href="#wall">Skip to content</a>
+
+  <!-- Icon sprites -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></symbol>
+  </svg>
+
+  <!-- Fixed 3D neural brain (hero backdrop) -->
+  <canvas id="brain3d" aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ============================== NAV ============================== -->
+  <header class="nav" id="nav">
+    <a class="nav__brand" href="#top" aria-label="DUM-E Labs home">
+      <span class="mark" data-mark data-pulses="6"></span>
+      <span class="nav__word">DUM-E <b>LABS</b></span>
+    </a>
+    <nav class="nav__links" id="navLinks" aria-label="Primary">
+      <a href="#wall">Why</a>
+      <a href="#brain">The Brain</a>
+      <a href="#chip">MNEMOS-1</a>
+      <a href="#soma">SOMA</a>
+      <a href="#road">Roadmap</a>
+      <a href="#lab">Lab</a>
+    </nav>
+    <a class="nav__icon" href="https://github.com/Dummie-Labs" target="_blank" rel="noopener" aria-label="DUM-E Labs on GitHub">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-github"/></svg>
+    </a>
+    <a class="btn btn--solid btn--sm nav__cta" href="#lab">Join the lab</a>
+    <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <main>
+    <!-- ============================== HERO ============================== -->
+    <section class="hero" id="top" data-hero>
+      <div class="hero__inner">
+        <p class="eyebrow"><span class="dot"></span>Neuromorphic silicon &amp; brain-native AI</p>
+        <h1 class="display">Memory<br>that <em>thinks.</em></h1>
+        <p class="lede">
+          We're building <strong>MNEMOS</strong>, a neuromorphic processor where storage <em>is</em> the processor,
+          and <strong>SOMA</strong>, AI models whose neurons spike, rewire and learn while they run.
+          It's modelled on the 20-watt computer in your head.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn--solid" href="#chip">Inside the chip <span aria-hidden="true">→</span></a>
+          <a class="btn btn--ghost" href="#brain">How the brain does it</a>
+        </div>
+      </div>
+      <dl class="hero__stats">
+        <div><dt>External RAM</dt><dd><span data-count="0">0</span><small>GB</small></dd></div>
+        <div><dt>Full-load power</dt><dd>20–40<small>W</small></dd></div>
+        <div><dt>Weight movement</dt><dd>≈0<small>bytes</small></dd></div>
+        <div><dt>Learning</dt><dd>Live<small>on-chip</small></dd></div>
+      </dl>
+      <div class="scroll-cue" aria-hidden="true"><span></span>Scroll. It loops, like a thought.</div>
+    </section>
+
+    <!-- ============================== MARQUEE ============================== -->
+    <div class="marquee" data-marquee data-speed="40" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Compute-in-memory</span><i></i><span>Spiking neurons</span><i></i><span>No external RAM</span><i></i>
+        <span>Event-driven</span><i></i><span>On-chip learning</span><i></i><span>20–40 W</span><i></i>
+        <span>Near-zero latency</span><i></i><span>Brain-native AI</span><i></i>
+      </div>
     </div>
-  </div>
 
-  <!-- Marked Markdown Parser -->
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <!-- Highlight.js Code Highlighting -->
-  <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/highlight.min.js"></script>
-  <!-- Mermaid Diagram Engine -->
-  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <!-- ============================== 01 THE WALL ============================== -->
+    <section class="section" id="wall">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <p class="sec-num">01 — The wall</p>
+          <h2>Today's AI spends most of its energy <em>moving data around.</em></h2>
+          <p class="sec-lede">
+            Every computer since 1945 keeps memory and processing in separate places. To do one multiply, a GPU
+            fetches the weight from RAM, carries it across a bus, computes, and writes the result back,
+            billions of times per token. The fetching costs far more than the maths. This is the
+            <strong>von Neumann bottleneck</strong>, and it's why one rack of AI accelerators draws more power than a street of houses.
+          </p>
+        </header>
 
-  <script>
-    // 1. Initialize Mermaid Engine with Dark Theme
-    mermaid.initialize({
-      startOnLoad: false,
-      theme: 'dark',
-      securityLevel: 'loose',
-      themeVariables: {
-        darkMode: true,
-        background: '#161b22',
-        primaryColor: '#1f242d',
-        primaryBorderColor: '#89b4fa',
-        lineColor: '#cba6f7',
-        textColor: '#cdd6f4'
-      }
-    });
+        <div class="vs reveal">
+          <article class="vs__card">
+            <div class="vs__label"><span class="tag">Today</span>Von Neumann machine</div>
+            <svg class="vn" viewBox="0 0 420 220" aria-label="Processor and RAM separated by a bus with data shuttling back and forth">
+              <rect class="vn__box" x="14" y="58" width="120" height="104" rx="10"/>
+              <text class="vn__t" x="74" y="104">PROCESSOR</text>
+              <text class="vn__s" x="74" y="124">waits…</text>
+              <rect class="vn__box" x="286" y="38" width="120" height="144" rx="10"/>
+              <g class="vn__cells">
+                <rect x="300" y="52" width="20" height="20"/><rect x="326" y="52" width="20" height="20"/><rect x="352" y="52" width="20" height="20"/><rect x="378" y="52" width="14" height="20"/>
+                <rect x="300" y="78" width="20" height="20"/><rect x="326" y="78" width="20" height="20"/><rect x="352" y="78" width="20" height="20"/><rect x="378" y="78" width="14" height="20"/>
+                <rect x="300" y="104" width="20" height="20"/><rect x="326" y="104" width="20" height="20"/><rect x="352" y="104" width="20" height="20"/><rect x="378" y="104" width="14" height="20"/>
+              </g>
+              <text class="vn__t" x="346" y="160">RAM</text>
+              <path class="vn__bus" d="M134 96 H286 M134 124 H286"/>
+              <g class="vn__packets">
+                <rect class="pk pk--out" x="140" y="90" width="16" height="12" rx="2"/>
+                <rect class="pk pk--out d2" x="140" y="90" width="16" height="12" rx="2"/>
+                <rect class="pk pk--back" x="264" y="118" width="16" height="12" rx="2"/>
+                <rect class="pk pk--back d2" x="264" y="118" width="16" height="12" rx="2"/>
+              </g>
+              <text class="vn__s" x="210" y="208">the bus: every weight, every token</text>
+            </svg>
+            <p class="vs__foot">Data commutes. Energy is spent on the trip.</p>
+          </article>
+          <article class="vs__card vs__card--us">
+            <div class="vs__label"><span class="tag tag--on">MNEMOS</span>Compute-in-memory fabric</div>
+            <svg class="cim" viewBox="0 0 420 220" aria-label="Grid of memory cells that compute in place">
+              <g class="cim__grid" id="cimGrid"></g>
+              <text class="vn__s" x="210" y="208">every cell stores a weight and computes with it</text>
+            </svg>
+            <p class="vs__foot">Data stays put. The maths happens where it lives.</p>
+          </article>
+        </div>
 
-    // 2. Custom Marked Renderer for Mermaid Code Blocks
-    const renderer = new marked.Renderer();
-    const defaultCodeRenderer = renderer.code.bind(renderer);
+        <div class="facts reveal">
+          <div class="fact">
+            <p class="fact__n">≈170<small>×</small></p>
+            <p class="fact__l">more energy to fetch a 32-bit word from DRAM (≈640 pJ) than to multiply it (≈3.7 pJ).</p>
+            <p class="fact__src">45 nm figures, Horowitz, ISSCC 2014</p>
+          </div>
+          <div class="fact">
+            <p class="fact__n">~20<small>W</small></p>
+            <p class="fact__l">is what the human brain uses to run ~86 billion neurons and learn continuously.</p>
+            <p class="fact__src">Raichle &amp; Gusnard, PNAS 2002 · Azevedo et al. 2009</p>
+          </div>
+          <div class="fact">
+            <p class="fact__n">700<small>W</small></p>
+            <p class="fact__l">for a single flagship datacenter GPU, before networking, RAM and cooling. Large models need thousands.</p>
+            <p class="fact__src">NVIDIA H100 SXM, max TDP</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    renderer.code = function(code, language, escaped) {
-      if (language === 'mermaid') {
-        return `<div class="mermaid-wrapper"><div class="mermaid">${code}</div></div>`;
-      }
-      return defaultCodeRenderer(code, language, escaped);
-    };
+    <!-- ============================== 02 THE BRAIN ============================== -->
+    <section class="section" id="brain">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <p class="sec-num">02 — The blueprint</p>
+          <h2>The brain never separated <em>memory</em> from <em>thinking.</em></h2>
+          <p class="sec-lede">
+            In your head, a memory isn't stored in one place and processed in another. It's the strength
+            of the connections between neurons. Remembering, computing and learning all happen in the
+            same physical synapses, triggered only by sparse electrical spikes. Hover a region to see
+            how each one maps onto our silicon.
+          </p>
+        </header>
 
-    marked.setOptions({
-      renderer: renderer,
-      gfm: true,
-      breaks: false,
-      highlight: function(code, lang) {
-        if (lang && hljs.getLanguage(lang)) {
-          try {
-            return hljs.highlight(code, { language: lang }).value;
-          } catch (e) {}
-        }
-        return hljs.highlightAuto(code).value;
-      }
-    });
-
-    function renderMarkdown(markdownText) {
-      // Fix relative image paths in profile/README.md so root index.html loads them from profile/
-      markdownText = markdownText.replace(/src=["'](?!http|\/|profile\/)([^"']+)["']/g, 'src="profile/$1"');
-      markdownText = markdownText.replace(/!\[([^\]]*)\]\((?!http|\/|profile\/)([^)]+)\)/g, '![$1](profile/$2)');
-
-      // Render Markdown HTML
-      document.getElementById('content').innerHTML = marked.parse(markdownText);
-      
-      // Render Mermaid Diagrams asynchronously
-      setTimeout(() => {
-        mermaid.run({
-          nodes: document.querySelectorAll('.mermaid')
-        });
-      }, 50);
-    }
-
-    // 3. Try fetching profile/README.md (Works on GitHub Pages & Local Servers)
-    fetch('profile/README.md')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.text();
-      })
-      .then(markdown => {
-        renderMarkdown(markdown);
-      })
-      .catch(error => {
-        // If opened locally via file:// protocol where fetch is blocked by CORS
-        if (window.location.protocol === 'file:') {
-          document.getElementById('content').innerHTML = `
-            <div class="local-fallback">
-              <h3>📂 Local File Protocol Notice</h3>
-              <p>You opened <code>index.html</code> directly via <code>file://</code> protocol, so your browser blocked fetching <code>profile/README.md</code> for security reasons.</p>
-              <p><strong>Option 1:</strong> Select your <code>profile/README.md</code> file below to view it locally with all tables & rendering:</p>
-              <label class="btn-file">
-                Choose profile/README.md
-                <input type="file" id="file-input" accept=".md" style="display:none;">
-              </label>
-              <p style="margin-top:20px; font-size:0.85rem; color:#8b949e;"><strong>Option 2:</strong> Once pushed to <strong>GitHub Pages</strong>, it will load <code>profile/README.md</code> automatically without any clicks!</p>
+        <div class="brainmap reveal">
+          <div class="brainmap__stage">
+            <canvas id="brainMap" aria-label="Interactive brain map with neural connections"></canvas>
+            <p class="brainmap__hint">Tap or hover a region · click anywhere to fire a thought</p>
+          </div>
+          <aside class="brainmap__panel" aria-live="polite">
+            <div class="regions" role="tablist" aria-label="Brain regions" id="regionTabs"></div>
+            <div class="region-card" id="regionCard">
+              <p class="region-card__kicker" id="rcKicker">Frontal lobe</p>
+              <h3 id="rcTitle">Planning, reasoning &amp; working memory</h3>
+              <div class="region-card__cols">
+                <div>
+                  <p class="mini">In the brain</p>
+                  <p id="rcBrain"></p>
+                </div>
+                <div>
+                  <p class="mini mini--on">In MNEMOS · SOMA</p>
+                  <p id="rcChip"></p>
+                </div>
+              </div>
+              <p class="region-card__stat" id="rcStat"></p>
             </div>
-          `;
-          document.getElementById('file-input').addEventListener('change', function(e) {
-            const file = e.target.files[0];
-            if (file) {
-              const reader = new FileReader();
-              reader.onload = function(evt) {
-                renderMarkdown(evt.target.result);
-              };
-              reader.readAsText(file);
-            }
-          });
-        } else {
-          document.getElementById('content').innerHTML = `
-            <div style="padding: 20px; border: 1px solid #f85149; border-radius: 6px; background: rgba(248,81,73,0.1); color: #f85149;">
-              <h3>Failed to load profile/README.md</h3>
-              <p>${error.message}</p>
+          </aside>
+        </div>
+
+        <div class="brainfacts reveal">
+          <div><b data-count="86">86</b><span>billion neurons</span></div>
+          <div><b>~10<sup>14</sup></b><span>synapses: memory &amp; compute</span></div>
+          <div><b>~20 W</b><span>total power budget</span></div>
+          <div><b>0.1–10 Hz</b><span>typical firing: mostly silent</span></div>
+          <div><b>No clock</b><span>events, not cycles</span></div>
+          <div><b>No RAM</b><span>state lives in the network</span></div>
+        </div>
+
+        <!-- Neuron anatomy ↔ MNEMOS synapse -->
+        <div class="neuron reveal">
+          <div class="neuron__head">
+            <h3>One neuron, two substrates</h3>
+            <p>Follow a signal through a biological neuron. Every stage has a direct counterpart in MNEMOS circuitry.</p>
+          </div>
+          <div class="neuron__viz">
+            <svg id="neuronSvg" viewBox="0 0 1000 260" aria-label="Neuron: dendrites, soma, axon, synapses">
+              <g class="nr-dend">
+                <path id="d1" d="M20 40 C 90 60, 150 90, 230 128"/>
+                <path id="d2" d="M10 130 C 90 130, 160 130, 230 130"/>
+                <path id="d3" d="M30 220 C 100 200, 160 170, 230 134"/>
+                <path d="M70 52 L 60 18 M 120 78 L 130 30 M 80 130 L 60 100 M 130 130 L 150 160 M 90 196 L 70 240 M 150 168 L 160 214"/>
+              </g>
+              <circle class="nr-soma" id="soma" cx="262" cy="130" r="34"/>
+              <path class="nr-axon" id="axon" d="M296 130 H 820"/>
+              <g class="nr-myelin">
+                <rect x="340" y="120" width="80" height="20" rx="10"/><rect x="440" y="120" width="80" height="20" rx="10"/>
+                <rect x="540" y="120" width="80" height="20" rx="10"/><rect x="640" y="120" width="80" height="20" rx="10"/>
+              </g>
+              <g class="nr-term">
+                <path id="t1" d="M820 130 C 860 120, 900 70, 950 54"/>
+                <path id="t2" d="M820 130 H 960"/>
+                <path id="t3" d="M820 130 C 860 140, 900 190, 950 206"/>
+                <circle cx="954" cy="54" r="8"/><circle cx="964" cy="130" r="8"/><circle cx="954" cy="206" r="8"/>
+              </g>
+              <g class="nr-labels">
+                <text x="90" y="250">DENDRITES</text>
+                <text x="262" y="200">SOMA</text>
+                <text x="560" y="100">AXON</text>
+                <text x="905" y="250">SYNAPSES</text>
+              </g>
+              <g id="neuronPulses"></g>
+            </svg>
+            <div class="scope">
+              <div class="scope__head"><span>Membrane potential · leaky integrate-and-fire</span><span class="scope__legend"><i></i>threshold</span></div>
+              <canvas id="lifScope" aria-label="Live membrane potential trace"></canvas>
             </div>
-          `;
-        }
-      });
-  </script>
+          </div>
+          <ol class="map">
+            <li><span class="map__b">Dendrites</span><span class="map__arrow">→</span><span class="map__c">Crossbar row lines carry input voltage</span></li>
+            <li><span class="map__b">Synapse strength</span><span class="map__arrow">→</span><span class="map__c">Memory-cell conductance <i>G</i> = the weight</span></li>
+            <li><span class="map__b">Soma integrates</span><span class="map__arrow">→</span><span class="map__c">Capacitor sums column current, leaks over time</span></li>
+            <li><span class="map__b">Threshold → spike</span><span class="map__arrow">→</span><span class="map__c">Comparator fires a 1-bit event and resets</span></li>
+            <li><span class="map__b">Axon</span><span class="map__arrow">→</span><span class="map__c">Asynchronous router sends a tiny address packet</span></li>
+            <li><span class="map__b">Plasticity</span><span class="map__arrow">→</span><span class="map__c">Programming pulses nudge <i>G</i> in place</span></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== 03 MNEMOS-1 ============================== -->
+    <section class="section section--chip" id="chip">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <p class="sec-num">03 — MNEMOS-1</p>
+          <h2>A processor made of memory. <em>Storage is the compute.</em></h2>
+          <p class="sec-lede">
+            MNEMOS (from <i>Mnemosyne</i>, the Greek goddess of memory) is our neuromorphic processor architecture.
+            There's no CPU next to a memory bank. Instead there's one fabric of neuro-cores, each of which
+            stores synaptic weights and computes with them in the same place. Scroll through how it works.
+          </p>
+        </header>
+      </div>
+
+      <div class="story">
+        <div class="story__stage">
+          <canvas id="chip3d" aria-label="3D model of the MNEMOS-1 chip"></canvas>
+          <div class="chip-labels" id="chipLabels" aria-hidden="true">
+            <span data-layer="3">Plasticity engine · I/O ring</span>
+            <span data-layer="2">Spike router mesh</span>
+            <span data-layer="1">Neuron circuits</span>
+            <span data-layer="0">Synaptic memory arrays</span>
+          </div>
+          <div class="chip-hud" id="chipHud"><span class="chip-hud__dot"></span><span id="chipHudText">MNEMOS-1 · assembled</span></div>
+        </div>
+        <ol class="story__steps">
+          <li class="step" data-step="0">
+            <p class="step__n">01</p>
+            <h3>One fabric, not two</h3>
+            <p>MNEMOS-1 is a grid of neuro-cores. Each core is memory and processor at once. There's no CPU, no cache hierarchy, and no DRAM chips on the board, so a weight never has to travel anywhere.</p>
+          </li>
+          <li class="step" data-step="1">
+            <p class="step__n">02</p>
+            <h3>Four layers, one job</h3>
+            <p>Pull the stack apart: <b>synaptic memory arrays</b> hold the weights, <b>neuron circuits</b> integrate and fire, a <b>spike router</b> carries events between cores, and a <b>plasticity engine</b> rewrites weights while the chip runs.</p>
+          </li>
+          <li class="step" data-step="2">
+            <p class="step__n">03</p>
+            <h3>Weights are stored as conductance</h3>
+            <p>Every synapse is a non-volatile analog memory cell (ReRAM / PCM-class) whose electrical conductance <i>G</i> is the weight. The model isn't loaded into the chip. It's physically written into it, the way your memories are written into synapses.</p>
+          </li>
+          <li class="step" data-step="3">
+            <p class="step__n">04</p>
+            <h3>Physics does the maths</h3>
+            <p>An incoming spike drives voltage <i>V</i> onto a row. By Ohm's law each cell passes current <i>I = G·V</i>, which is the multiply. By Kirchhoff's law the currents on a column add up, which is the accumulate. A whole matrix-vector product settles in one analog step, in place, without fetching a single weight.</p>
+          </li>
+          <li class="step" data-step="4">
+            <p class="step__n">05</p>
+            <h3>Neurons integrate and fire</h3>
+            <p>Column current charges a tiny capacitor, the neuron's membrane. It leaks slowly. When it crosses threshold, the circuit emits a spike, resets, and rests for a refractory moment, exactly like a biological soma.</p>
+          </li>
+          <li class="step" data-step="5">
+            <p class="step__n">06</p>
+            <h3>Only spikes travel, and only when needed</h3>
+            <p>A spike is a few bits of address sent across an asynchronous mesh to its target cores. There's no global clock, so silent neurons draw almost nothing. With 1–5 % of neurons active at any instant, most of the chip is dark most of the time, which is how a 20–40 W envelope covers full load.</p>
+          </li>
+          <li class="step" data-step="6">
+            <p class="step__n">07</p>
+            <h3>It learns while it runs</h3>
+            <p>Local plasticity circuits watch spike timing. If the input fired just before the output, the connection strengthens; if just after, it weakens (STDP). A global neuromodulator signal, our version of dopamine, decides which changes stick. The weights are alive.</p>
+          </li>
+          <li class="step" data-step="7">
+            <p class="step__n">08</p>
+            <h3>Switch it off. It remembers.</h3>
+            <p>Because the synapses are non-volatile, the model and everything it has learned survive with zero power. It's instant-on, with no boot-time weight loading and no RAM to refill. It wakes up and picks up exactly where it left off.</p>
+          </li>
+        </ol>
+      </div>
+
+      <div class="wrap">
+        <!-- Interactive crossbar -->
+        <div class="xbar reveal" id="xbar">
+          <div class="xbar__intro">
+            <p class="sec-num">Try it · in-memory compute</p>
+            <h3>Fire the inputs. Watch Ohm and Kirchhoff do the maths.</h3>
+            <p>Each square is a synapse; brighter means higher conductance <i>G</i>. Toggle input spikes on the left. Every column's current <i>I = Σ G·V</i> flows into a neuron that integrates, leaks and fires. Click a synapse to reprogram its weight.</p>
+            <div class="xbar__ctrl">
+              <button class="btn btn--ghost btn--sm" id="xbAuto" aria-pressed="true">Auto spikes: on</button>
+              <button class="btn btn--ghost btn--sm" id="xbLearn" aria-pressed="false">STDP learning: off</button>
+              <button class="btn btn--ghost btn--sm" id="xbReset">Randomise weights</button>
+            </div>
+            <dl class="xbar__meter">
+              <div><dt>Active rows</dt><dd id="xbActive">0 / 6</dd></div>
+              <div><dt>Weights moved</dt><dd>0 bytes</dd></div>
+              <div><dt>Output spikes</dt><dd id="xbSpikes">0</dd></div>
+            </dl>
+          </div>
+          <div class="xbar__grid" id="xbGrid" aria-label="Crossbar array"></div>
+        </div>
+
+        <!-- Spec sheet -->
+        <div class="spec reveal">
+          <div class="spec__head">
+            <h3>MNEMOS-1 · target specification</h3>
+            <p class="badge">Design targets · pre-silicon</p>
+          </div>
+          <dl class="spec__grid">
+            <div><dt>Architecture</dt><dd>Analog compute-in-memory, spiking neuro-cores</dd></div>
+            <div><dt>Synaptic memory</dt><dd>Non-volatile multi-level cells (ReRAM / PCM-class)</dd></div>
+            <div><dt>External DRAM</dt><dd>None. Weights and state live on-fabric</dd></div>
+            <div><dt>Power envelope</dt><dd>20–40 W at full load · µW–mW when idle</dd></div>
+            <div><dt>Latency</dt><dd>Single analog settle per layer: no fetch, no decode</dd></div>
+            <div><dt>Interconnect</dt><dd>Asynchronous address-event 2D mesh, clockless</dd></div>
+            <div><dt>Learning</dt><dd>On-chip STDP + three-factor neuromodulated rules</dd></div>
+            <div><dt>Persistence</dt><dd>Instant-on; weights survive power-off</dd></div>
+          </dl>
+        </div>
+
+        <!-- Comparison -->
+        <div class="compare reveal" id="compare">
+          <h3>Brain vs. MNEMOS vs. today's AI hardware</h3>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr><th></th><th>Human brain</th><th class="us">MNEMOS-1 <small>target</small></th><th>GPU + DRAM</th></tr>
+              </thead>
+              <tbody>
+                <tr><th>Where memory lives</th><td>In synapses</td><td class="us">In synaptic cells</td><td>Separate RAM chips</td></tr>
+                <tr><th>Where compute happens</th><td>In the same synapses</td><td class="us">In the same cells</td><td>Separate cores</td></tr>
+                <tr><th>Data movement per op</th><td>None</td><td class="us">≈ None</td><td>Every weight, every step</td></tr>
+                <tr><th>Timing</th><td>Event-driven, no clock</td><td class="us">Event-driven, clockless</td><td>GHz global clock</td></tr>
+                <tr><th>Activity</th><td>Sparse spikes</td><td class="us">Sparse spikes (1–5 %)</td><td>Dense: all units, all steps</td></tr>
+                <tr><th>Learning</th><td>Continuous, local</td><td class="us">Continuous, on-chip</td><td>Offline, in a datacenter</td></tr>
+                <tr><th>After power-off</th><td>N/A (always on)</td><td class="us">Remembers everything</td><td>RAM wiped, reload model</td></tr>
+                <tr><th>Power</th><td>~20 W</td><td class="us">20–40 W</td><td>700 W per GPU</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== 04 SOMA ============================== -->
+    <section class="section" id="soma">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <p class="sec-num">04 — SOMA models</p>
+          <h2>AI that works the way <em>neurons</em> work.</h2>
+          <p class="sec-lede">
+            <strong>SOMA</strong> (Spiking · Online-learning · Memory-resident · Adaptive) is our family of
+            brain-native models, built to run natively on MNEMOS. A transformer recomputes every weight for every
+            token and never changes after training. SOMA neurons spike only when they have something to say,
+            and their connections strengthen, weaken, grow and disappear as they run.
+          </p>
+        </header>
+
+        <div class="soma reveal">
+          <div class="soma__stage">
+            <canvas id="somaNet" aria-label="Live spiking neural network with dynamic connections"></canvas>
+            <div class="soma__hud">
+              <div><span>Neurons</span><b id="snN">0</b></div>
+              <div><span>Synapses</span><b id="snS">0</b></div>
+              <div><span>Spikes / s</span><b id="snR">0</b></div>
+              <div><span>Active now</span><b id="snA">0%</b></div>
+              <div><span>Formed / pruned</span><b id="snG">0 / 0</b></div>
+            </div>
+            <div class="soma__ctrl">
+              <button class="btn btn--solid btn--sm" id="snReward">Release dopamine</button>
+              <button class="btn btn--ghost btn--sm" id="snPlastic" aria-pressed="true">Plasticity: on</button>
+              <span class="soma__hint">Click the network to stimulate it</span>
+            </div>
+          </div>
+          <div class="soma__legend">
+            <p><i class="lg lg--n"></i>Neuron (glows when it spikes)</p>
+            <p><i class="lg lg--s"></i>Synapse (thickness = weight)</p>
+            <p><i class="lg lg--g"></i>Newly grown connection</p>
+            <p><i class="lg lg--p"></i>Spike in flight</p>
+          </div>
+        </div>
+
+        <div class="cards">
+          <article class="card reveal">
+            <p class="card__k">Spiking neurons</p>
+            <h3>Information in time, not just in numbers</h3>
+            <p>Each SOMA unit is a leaky integrate-and-fire neuron with adaptive threshold. It communicates with discrete spikes, so meaning is carried by <i>which</i> neurons fire and <i>when</i>.</p>
+          </article>
+          <article class="card reveal">
+            <p class="card__k">Dynamic weights</p>
+            <h3>Neurons that fire together, wire together</h3>
+            <p>Spike-timing-dependent plasticity updates every synapse locally, during inference. Inputs that help predict a neuron's firing gain influence; ones that don't fade.</p>
+          </article>
+          <article class="card reveal">
+            <p class="card__k">Structural plasticity</p>
+            <h3>The graph rewires itself</h3>
+            <p>New synapses sprout between co-active neurons and unused ones are pruned, the way a child's brain refines itself. Architecture becomes something the model learns.</p>
+          </article>
+          <article class="card reveal">
+            <p class="card__k">Neuromodulation</p>
+            <h3>A dopamine signal for learning</h3>
+            <p>Three-factor learning: local spike timing proposes a change, a global reward or surprise signal approves it. That gives credit assignment without backprop through the whole network.</p>
+          </article>
+          <article class="card reveal">
+            <p class="card__k">Memory without RAM</p>
+            <h3>Context lives in the network itself</h3>
+            <p>Short-term context is held in membrane potentials and fast synapses, and long-term knowledge in non-volatile conductances. There's no KV cache and no weight streaming.</p>
+          </article>
+          <article class="card reveal">
+            <p class="card__k">Sleep &amp; consolidation</p>
+            <h3>Learn today, keep it forever</h3>
+            <p>Idle-time replay moves fresh, fast-changing memories into stable long-term synapses, much as the hippocampus does during sleep, so new skills don't erase old ones.</p>
+          </article>
+        </div>
+
+        <div class="duel reveal">
+          <div class="duel__col">
+            <p class="duel__h">Transformer on a GPU</p>
+            <ul>
+              <li>Every token touches every weight</li>
+              <li>Weights frozen after training</li>
+              <li>Context in a KV cache in RAM</li>
+              <li>Learns offline, in a datacenter</li>
+              <li>Fixed, hand-designed graph</li>
+            </ul>
+          </div>
+          <div class="duel__vs">vs</div>
+          <div class="duel__col duel__col--us">
+            <p class="duel__h">SOMA on MNEMOS</p>
+            <ul>
+              <li>Only spiking paths do any work</li>
+              <li>Weights adapt while it runs</li>
+              <li>Context in neuron &amp; synapse state</li>
+              <li>Learns on-device, continuously</li>
+              <li>Connections grow and prune themselves</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== MARQUEE 2 ============================== -->
+    <div class="marquee marquee--outline" data-marquee data-speed="-32" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Intelligence per watt</span><i></i><span>Memristive synapses</span><i></i><span>STDP</span><i></i>
+        <span>Structural plasticity</span><i></i><span>Neuromodulation</span><i></i><span>Continual learning</span><i></i>
+      </div>
+    </div>
+
+    <!-- ============================== 05 ROADMAP ============================== -->
+    <section class="section" id="road">
+      <div class="wrap">
+        <header class="sec-head reveal">
+          <p class="sec-num">05 — The road to brain-scale intelligence</p>
+          <h2>From a spiking neuron to <em>a mind that learns like ours.</em></h2>
+          <p class="sec-lede">
+            Artificial superintelligence won't come from making datacenters bigger. We think it comes from
+            systems that learn continuously, remember without forgetting, and reason on a brain's energy
+            budget. Here's how we get there.
+          </p>
+        </header>
+
+        <ol class="road" id="roadList">
+          <li class="road__item reveal is-now">
+            <p class="road__phase">Phase 0 · Now</p>
+            <h3>SOMA in simulation</h3>
+            <p>Spiking models, plasticity rules and neuromodulated learning, developed and benchmarked in software. Our metric is intelligence per watt.</p>
+          </li>
+          <li class="road__item reveal">
+            <p class="road__phase">Phase 1</p>
+            <h3>Neuro-core on FPGA</h3>
+            <p>A digital twin of a MNEMOS core: LIF neuron circuits, address-event router and on-chip STDP, running real SOMA networks in hardware.</p>
+          </li>
+          <li class="road__item reveal">
+            <p class="road__phase">Phase 2</p>
+            <h3>Analog test silicon</h3>
+            <p>A memristive crossbar test chip to characterise multi-level conductance, drift, write endurance and energy per synaptic event.</p>
+          </li>
+          <li class="road__item reveal">
+            <p class="road__phase">Phase 3</p>
+            <h3>MNEMOS-1</h3>
+            <p>A multi-core neuromorphic processor in a 20–40 W envelope, with SOMA models running natively. The first DUM-E agents run on it with no RAM.</p>
+          </li>
+          <li class="road__item reveal">
+            <p class="road__phase">Phase 4</p>
+            <h3>Brain-scale fabrics</h3>
+            <p>Tiled MNEMOS systems scaling toward cortical neuron counts, with agents that keep learning for years without retraining.</p>
+          </li>
+          <li class="road__item road__item--horizon reveal">
+            <p class="road__phase">Horizon</p>
+            <h3>Human-like general intelligence, then beyond</h3>
+            <p>Minds that perceive, remember, reason and adapt the way people do, at the energy of a human brain. That's our path to artificial superintelligence.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============================== 06 LAB ============================== -->
+    <section class="section" id="lab">
+      <div class="wrap">
+        <div class="lab reveal">
+          <div class="lab__copy">
+            <p class="sec-num">06 — The lab</p>
+            <h2>A small lab with a <em>very large</em> goal.</h2>
+            <p class="sec-lede">
+              DUM-E Labs is an independent research lab working at the boundary of neuroscience, analog circuit
+              design and machine learning. If you think in spikes, synapses, or sense amplifiers, we'd like
+              to build with you.
+            </p>
+            <div class="cta-row">
+              <a class="btn btn--solid" href="https://github.com/Dummie-Labs" target="_blank" rel="noopener">
+                <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-github"/></svg>Dummie-Labs on GitHub <span aria-hidden="true">↗</span>
+              </a>
+              <a class="btn btn--ghost" href="readme.html">Lab notes</a>
+            </div>
+          </div>
+          <div class="lab__side">
+            <div class="who">
+              <span class="mark mark--lg" data-mark data-pulses="10"></span>
+              <div>
+                <p class="who__name">Kucharlapati Sri Rishikesh Varma</p>
+                <p class="who__role">Founder &amp; lead researcher</p>
+                <div class="who__links">
+                  <a href="https://github.com/rishikeshvarma" target="_blank" rel="noopener" aria-label="Rishikesh Varma on GitHub">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-github"/></svg>@rishikeshvarma
+                  </a>
+                  <a href="https://www.linkedin.com/in/rishikeshvarma-kucharlapati/" target="_blank" rel="noopener" aria-label="Rishikesh Varma on LinkedIn">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn
+                  </a>
+                </div>
+              </div>
+            </div>
+            <p class="mini">We're looking for</p>
+            <ul class="roles">
+              <li>Analog / mixed-signal circuit designers</li>
+              <li>Spiking neural network researchers</li>
+              <li>FPGA &amp; digital design engineers</li>
+              <li>Computational neuroscientists</li>
+              <li>Systems &amp; compiler engineers</li>
+            </ul>
+            <div class="agent">
+              <p class="mini mini--on">Also from the lab</p>
+              <p><b>DUM-E</b> is our on-device AI agent. Today it runs on consumer GPUs. It will be the first workload ported to SOMA on MNEMOS.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================== FOOTER ============================== -->
+  <footer class="foot">
+    <div class="wrap foot__inner">
+      <div class="foot__brand">
+        <span class="mark mark--md" data-mark data-pulses="6"></span>
+        <div>
+          <p class="foot__word">DUM-E <b>LABS</b></p>
+          <p class="foot__tag">Neuromorphic silicon &amp; brain-native AI</p>
+        </div>
+      </div>
+      <nav class="foot__links" aria-label="Footer">
+        <a href="#brain">The Brain</a><a href="#chip">MNEMOS-1</a><a href="#soma">SOMA</a><a href="#road">Roadmap</a>
+        <a href="readme.html">Lab notes</a>
+      </nav>
+      <div class="foot__social">
+        <a href="https://github.com/Dummie-Labs" target="_blank" rel="noopener" aria-label="DUM-E Labs on GitHub" title="DUM-E Labs on GitHub">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-github"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/rishikeshvarma-kucharlapati/" target="_blank" rel="noopener" aria-label="Founder on LinkedIn" title="Founder on LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-linkedin"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="wrap foot__base">
+      <p>© <span id="year">2026</span> DUM-E Labs. MNEMOS and SOMA specifications are research targets, not shipping products.</p>
+      <p class="foot__loop">Keep scrolling ↓ and the page starts again.</p>
+    </div>
+  </footer>
+
+  <!-- ============================== LOOP CLONE (infinite scroll) ============================== -->
+  <section class="hero hero--clone" data-hero data-loop aria-hidden="true" inert>
+    <div class="hero__inner">
+      <p class="eyebrow"><span class="dot"></span>Neuromorphic silicon &amp; brain-native AI</p>
+      <p class="display">Memory<br>that <em>thinks.</em></p>
+      <p class="lede">
+        We're building <strong>MNEMOS</strong>, a neuromorphic processor where storage <em>is</em> the processor,
+        and <strong>SOMA</strong>, AI models whose neurons spike, rewire and learn while they run.
+        It's modelled on the 20-watt computer in your head.
+      </p>
+      <div class="cta-row">
+        <span class="btn btn--solid">Inside the chip <span>→</span></span>
+        <span class="btn btn--ghost">How the brain does it</span>
+      </div>
+    </div>
+    <dl class="hero__stats">
+      <div><dt>External RAM</dt><dd>0<small>GB</small></dd></div>
+      <div><dt>Full-load power</dt><dd>20–40<small>W</small></dd></div>
+      <div><dt>Weight movement</dt><dd>≈0<small>bytes</small></dd></div>
+      <div><dt>Learning</dt><dd>Live<small>on-chip</small></dd></div>
+    </dl>
+    <div class="scroll-cue"><span></span>Scroll. It loops, like a thought.</div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js"></script>
+  <script src="assets/js/mark-data.js?v=6"></script>
+  <script src="assets/js/main.js?v=6"></script>
+  <script src="assets/js/brain3d.js?v=6"></script>
+  <script src="assets/js/brainmap.js?v=6"></script>
+  <script src="assets/js/chip3d.js?v=6"></script>
+  <script src="assets/js/crossbar.js?v=6"></script>
+  <script src="assets/js/soma.js?v=6"></script>
 </body>
 </html>
