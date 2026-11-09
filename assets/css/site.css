@@ -183,6 +183,7 @@ main, .foot, .hero--clone { position: relative; z-index: 2; }
   color: var(--dim);
 }
 .eyebrow { display: inline-flex; align-items: center; gap: 12px; }
+.hero .eyebrow, .hero .lede { text-shadow: 0 0 14px #050505, 0 0 6px #050505, 0 0 2px #050505; }
 .dot {
   width: 8px; height: 8px; border-radius: 50%; background: var(--bone);
   box-shadow: 0 0 0 0 rgba(236, 232, 225, 0.6);
