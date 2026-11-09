@@ -2,7 +2,7 @@
    DUM-E Labs — core site behaviour
    - animated brain-mesh marks
    - nav, reveal-on-scroll, counters
-   - infinite marquees + infinite (looping) page scroll
+   - infinite marquees + back-to-top button
    - shared helpers for the visual modules (window.DUME)
    ===================================================================== */
 (function () {
@@ -220,10 +220,10 @@
   }
 
   /* ------------------------------------------------------------------ */
-  /* Infinite page loop + hero visibility (drives the 3D brain)          */
+  /* Hero visibility (drives the 3D brain) + back-to-top button          */
   /* ------------------------------------------------------------------ */
   const heroes = [...document.querySelectorAll("[data-hero]")];
-  const clone = document.querySelector("[data-loop]");
+  const toTop = document.getElementById("toTop");
 
   function heroVisibility() {
     const vh = window.innerHeight;
@@ -243,12 +243,7 @@
     scrollVel = scrollVel * 0.6 + ((y - lastY) / dt) * 1000 * 0.4;
     lastY = y;
 
-    // seamless loop: the clone hero at the bottom is pixel-identical to the top hero
-    const loopStart = clone.offsetTop;
-    if (y >= loopStart) {
-      window.scrollTo({ top: y - loopStart, behavior: "instant" });
-      lastY = window.scrollY;
-    }
+    if (toTop) toTop.classList.toggle("show", y > window.innerHeight * 0.8);
 
     DUME.heroVis = heroVisibility();
     if (DUME.setBrainOpacity) DUME.setBrainOpacity(DUME.heroVis);
@@ -257,17 +252,7 @@
   }
   window.addEventListener("scroll", onScroll, { passive: true });
 
-  // scrolling up past the very top wraps to the bottom (wheel/trackpad only)
-  window.addEventListener(
-    "wheel",
-    (e) => {
-      if (window.scrollY <= 0 && e.deltaY < 0 && !e.ctrlKey) {
-        // land 1px above the loop point so the forward jump doesn't fire
-        window.scrollTo({ top: clone.offsetTop - 1, behavior: "instant" });
-      }
-    },
-    { passive: true }
-  );
+  if (toTop) toTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: reduced ? "auto" : "smooth" }));
 
   /* ------------------------------------------------------------------ */
   /* Roadmap progress line                                               */

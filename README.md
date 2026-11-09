@@ -30,14 +30,14 @@ This repository is the DUM-E Labs organization's `.github` repo. It holds three 
 | 05 · Roadmap | Phase 0 → brain-scale intelligence |
 | 06 · The lab | Founder, open roles, links |
 
-The page loops: scroll past the footer and it continues seamlessly into the hero.
+Scrolling ends at the footer; a round back-to-top button appears once you leave the hero.
 
 ```
 index.html              the site
 readme.html             "Lab notes": renders profile/README.md in the site's style
 assets/css/site.css     styles (black + bone palette from the logo)
 assets/js/
-  main.js               nav, reveal, marquees, infinite loop scroll, animated marks
+  main.js               nav, reveal, marquees, back-to-top button, animated marks
   brain3d.js            hero 3D brain (Three.js)
   brainmap.js           brain region map + neuron / LIF scope
   chip3d.js             MNEMOS-1 3D chip walkthrough (Three.js)

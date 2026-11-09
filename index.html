@@ -22,7 +22,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/site.css?v=7">
+  <link rel="stylesheet" href="assets/css/site.css?v=8">
 </head>
 <body>
 
@@ -83,7 +83,7 @@
         <div><dt>Weight movement</dt><dd>≈0<small>bytes</small></dd></div>
         <div><dt>Learning</dt><dd>Live<small>on-chip</small></dd></div>
       </dl>
-      <div class="scroll-cue" aria-hidden="true"><span></span>Scroll. It loops, like a thought.</div>
+      <div class="scroll-cue" aria-hidden="true"><span></span>Scroll to explore</div>
     </section>
 
     <!-- ============================== MARQUEE ============================== -->
@@ -626,41 +626,22 @@
     </div>
     <div class="wrap foot__base">
       <p>© <span id="year">2026</span> DUM-E Labs. MNEMOS and SOMA specifications are research targets, not shipping products.</p>
-      <p class="foot__loop">Keep scrolling ↓ and the page starts again.</p>
+      <p class="foot__loop">Memory that thinks.</p>
     </div>
   </footer>
 
-  <!-- ============================== LOOP CLONE (infinite scroll) ============================== -->
-  <section class="hero hero--clone" data-hero data-loop aria-hidden="true" inert>
-    <div class="hero__inner">
-      <p class="eyebrow"><span class="dot"></span>Neuromorphic silicon &amp; brain-native AI</p>
-      <p class="display">Memory<br>that <em>thinks.</em></p>
-      <p class="lede">
-        We're building <strong>MNEMOS</strong>, a neuromorphic processor where storage <em>is</em> the processor,
-        and <strong>SOMA</strong>, AI models whose neurons spike, rewire and learn while they run.
-        It's modelled on the 20-watt computer in your head.
-      </p>
-      <div class="cta-row">
-        <span class="btn btn--solid">Inside the chip <span>→</span></span>
-        <span class="btn btn--ghost">How the brain does it</span>
-      </div>
-    </div>
-    <dl class="hero__stats">
-      <div><dt>External RAM</dt><dd>0<small>GB</small></dd></div>
-      <div><dt>Full-load power</dt><dd>20–40<small>W</small></dd></div>
-      <div><dt>Weight movement</dt><dd>≈0<small>bytes</small></dd></div>
-      <div><dt>Learning</dt><dd>Live<small>on-chip</small></dd></div>
-    </dl>
-    <div class="scroll-cue"><span></span>Scroll. It loops, like a thought.</div>
-  </section>
+  <!-- Back to top -->
+  <button class="to-top" id="toTop" type="button" aria-label="Back to top" title="Back to top">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5"/></svg>
+  </button>
 
   <script src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js"></script>
-  <script src="assets/js/mark-data.js?v=7"></script>
-  <script src="assets/js/main.js?v=7"></script>
-  <script src="assets/js/brain3d.js?v=7"></script>
-  <script src="assets/js/brainmap.js?v=7"></script>
-  <script src="assets/js/chip3d.js?v=7"></script>
-  <script src="assets/js/crossbar.js?v=7"></script>
-  <script src="assets/js/soma.js?v=7"></script>
+  <script src="assets/js/mark-data.js?v=8"></script>
+  <script src="assets/js/main.js?v=8"></script>
+  <script src="assets/js/brain3d.js?v=8"></script>
+  <script src="assets/js/brainmap.js?v=8"></script>
+  <script src="assets/js/chip3d.js?v=8"></script>
+  <script src="assets/js/crossbar.js?v=8"></script>
+  <script src="assets/js/soma.js?v=8"></script>
 </body>
 </html>
